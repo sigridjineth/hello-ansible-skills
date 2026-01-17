@@ -1,0 +1,18 @@
+{
+  "name": "ansible-skills-marketplace",
+  "description": "Marketplace for Ansible automation skills",
+  "owner": {
+    "name": "sigridjineth"
+  },
+  "plugins": [
+    {
+      "name": "ansible-skills",
+      "description": "Ansible automation skills for Claude Code: playbook development, debugging, shell conversion, and interactive workflows",
+      "version": "1.0.0",
+      "source": "./",
+      "author": {
+        "name": "sigridjineth"
+      }
+    }
+  ]
+}

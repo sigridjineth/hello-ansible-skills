@@ -1,0 +1,12 @@
+{
+  "name": "ansible-skills",
+  "description": "Ansible automation skills for Claude Code: playbook development, debugging, shell conversion, and interactive workflows",
+  "version": "1.0.0",
+  "author": {
+    "name": "sigridjineth"
+  },
+  "homepage": "https://github.com/sigridjineth/hello-ansible",
+  "repository": "https://github.com/sigridjineth/hello-ansible",
+  "license": "MIT",
+  "keywords": ["ansible", "playbook", "automation", "devops", "infrastructure", "iac"]
+}
