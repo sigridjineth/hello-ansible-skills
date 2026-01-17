@@ -1,0 +1,14 @@
+---
+- hosts: all
+  tasks:
+    - name: Create a file (triggers handler)
+      ansible.builtin.file:
+        path: /tmp/handler-test.txt
+        state: touch
+      notify:
+        - print msg
+
+  handlers:
+    - name: print msg
+      ansible.builtin.debug:
+        msg: "Handler triggered! File was created/modified."

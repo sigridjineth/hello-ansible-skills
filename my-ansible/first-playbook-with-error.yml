@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - name: Print message
+      debug:
+      msg: Hello CloudNet@ Ansible Study

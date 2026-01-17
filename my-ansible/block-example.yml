@@ -1,0 +1,40 @@
+---
+- hosts: all
+  vars:
+    logdir: /tmp/daily_log
+    logfile: todays.log
+
+  tasks:
+    - name: Configure Log Environment
+      block:
+        - name: Check if directory exists
+          ansible.builtin.stat:
+            path: "{{ logdir }}"
+          register: dir_stat
+
+        - name: Fail if directory doesn't exist
+          ansible.builtin.fail:
+            msg: "Directory {{ logdir }} does not exist!"
+          when: not dir_stat.stat.exists
+
+      rescue:
+        - name: Create directory when not found
+          ansible.builtin.file:
+            path: "{{ logdir }}"
+            state: directory
+            mode: '0755'
+
+      always:
+        - name: Create log file (always runs)
+          ansible.builtin.file:
+            path: "{{ logdir }}/{{ logfile }}"
+            state: touch
+            mode: '0644'
+
+        - name: Show final result
+          ansible.builtin.shell: "ls -la {{ logdir }}/"
+          register: result
+
+        - name: Display directory contents
+          ansible.builtin.debug:
+            msg: "{{ result.stdout_lines }}"

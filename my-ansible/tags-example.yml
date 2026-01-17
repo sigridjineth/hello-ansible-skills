@@ -1,0 +1,34 @@
+---
+- hosts: all
+  tasks:
+    - name: "Install packages"
+      ansible.builtin.debug:
+        msg: "Installing packages..."
+      tags:
+        - install
+        - setup
+
+    - name: "Configure settings"
+      ansible.builtin.debug:
+        msg: "Configuring settings..."
+      tags:
+        - config
+        - setup
+
+    - name: "Start services"
+      ansible.builtin.debug:
+        msg: "Starting services..."
+      tags:
+        - service
+
+    - name: "Run tests"
+      ansible.builtin.debug:
+        msg: "Running tests..."
+      tags:
+        - test
+
+    - name: "Always run this"
+      ansible.builtin.debug:
+        msg: "This always runs!"
+      tags:
+        - always

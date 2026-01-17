@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars:
+    user: ansible2
+
+  tasks:
+    - name: Display user variable (play var overrides group var)
+      ansible.builtin.debug:
+        msg: "The user variable is: {{ user }}"

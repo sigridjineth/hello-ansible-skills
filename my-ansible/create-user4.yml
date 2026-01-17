@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+    - name: Get current user
+      ansible.builtin.shell: "whoami"
+      register: result
+
+    - name: Display registered result
+      ansible.builtin.debug:
+        var: result

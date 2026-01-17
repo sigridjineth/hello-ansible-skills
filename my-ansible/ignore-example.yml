@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+    - name: This task will fail (command not found)
+      ansible.builtin.shell: "nonexistent_command"
+      ignore_errors: yes
+
+    - name: This task still runs despite the error above
+      ansible.builtin.debug:
+        msg: "Execution continued after ignored error!"

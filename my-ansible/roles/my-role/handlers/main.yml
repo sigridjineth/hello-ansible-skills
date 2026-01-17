@@ -1,0 +1,12 @@
+#SPDX-License-Identifier: MIT-0
+---
+# handlers file for my-role
+
+- name: show web content
+  ansible.builtin.shell: "cat {{ web_root }}/{{ web_index }}"
+  register: cat_result
+
+- name: display content
+  ansible.builtin.debug:
+    msg: "{{ cat_result.stdout_lines }}"
+  listen: show web content

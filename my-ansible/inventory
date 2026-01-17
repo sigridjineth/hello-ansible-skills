@@ -1,0 +1,15 @@
+# Ansible Inventory File
+# Using localhost with different group configurations for learning
+
+[web]
+localhost ansible_connection=local ansible_python_interpreter=/opt/homebrew/bin/python3
+
+[db]
+localhost ansible_connection=local ansible_python_interpreter=/opt/homebrew/bin/python3
+
+[all:children]
+web
+db
+
+[all:vars]
+user=ansible_user

@@ -1,0 +1,28 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for my-role
+
+- name: Create web root directory
+  ansible.builtin.file:
+    path: "{{ web_root }}"
+    state: directory
+    mode: '0755'
+
+- name: Create index.html file
+  ansible.builtin.copy:
+    dest: "{{ web_root }}/{{ web_index }}"
+    content: |
+      <html>
+      <head><title>Ansible Role Demo</title></head>
+      <body>
+        <h1>{{ web_message }}</h1>
+        <p>Owner: {{ web_owner }}</p>
+        <p>Created by: my-role</p>
+      </body>
+      </html>
+    mode: '0644'
+  notify: show web content
+
+- name: Display web setup info
+  ansible.builtin.debug:
+    msg: "Web content created at {{ web_root }}/{{ web_index }}"

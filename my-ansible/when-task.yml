@@ -1,0 +1,15 @@
+---
+- hosts: all
+  vars:
+    run_my_task: true
+
+  tasks:
+    - name: This task runs when condition is true
+      ansible.builtin.shell: "echo 'Task executed!'"
+      when: run_my_task
+      register: result
+
+    - name: Show result
+      ansible.builtin.debug:
+        var: result
+      when: result is defined

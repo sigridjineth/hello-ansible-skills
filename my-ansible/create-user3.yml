@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars_files:
+    - vars/users.yml
+
+  tasks:
+    - name: Display user variable from external file
+      ansible.builtin.debug:
+        msg: "The user variable is: {{ user }}"

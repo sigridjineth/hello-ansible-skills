@@ -1,0 +1,4 @@
+#SPDX-License-Identifier: MIT-0
+---
+# vars file for my-role (higher precedence than defaults)
+web_owner: "{{ ansible_user_id }}"

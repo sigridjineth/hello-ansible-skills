@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - name: Display user variable from inventory
+      ansible.builtin.debug:
+        msg: "The user variable is: {{ user }}"

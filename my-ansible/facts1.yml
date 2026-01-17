@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+    - name: Print specific facts
+      ansible.builtin.debug:
+        msg: >
+          Hostname: {{ ansible_facts.hostname }}
+          OS Family: {{ ansible_facts.os_family }}
+          Distribution: {{ ansible_facts.distribution }}
+          Distribution Version: {{ ansible_facts.distribution_version }}
+          Architecture: {{ ansible_facts.architecture }}
+          Processor: {{ ansible_facts.processor[1] | default('N/A') }}

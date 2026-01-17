@@ -1,0 +1,14 @@
+---
+- hosts: all
+  vars:
+    run_my_task: false
+
+  tasks:
+    - name: This task is skipped when condition is false
+      ansible.builtin.shell: "echo 'Task executed!'"
+      when: run_my_task
+      register: result
+
+    - name: Show result (skipped variable info)
+      ansible.builtin.debug:
+        var: result

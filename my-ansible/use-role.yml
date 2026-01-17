@@ -1,0 +1,7 @@
+---
+# Playbook that uses the my-role
+- hosts: web
+  tasks:
+    - name: Import and run my-role
+      ansible.builtin.import_role:
+        name: my-role

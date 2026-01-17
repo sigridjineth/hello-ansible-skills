@@ -1,0 +1,21 @@
+---
+- hosts: all
+  tasks:
+    - name: Create files with different permissions
+      ansible.builtin.file:
+        path: "{{ item['file_path'] }}"
+        mode: "{{ item['file_mode'] }}"
+        state: touch
+      loop:
+        - file_path: /tmp/test1.log
+          file_mode: '0644'
+        - file_path: /tmp/test2.log
+          file_mode: '0600'
+
+    - name: Verify files were created
+      ansible.builtin.shell: "ls -l /tmp/test*.log"
+      register: result
+
+    - name: Show file listing
+      ansible.builtin.debug:
+        msg: "{{ result.stdout_lines }}"

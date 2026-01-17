@@ -1,0 +1,31 @@
+---
+# Using collection modules with FQCN (Fully Qualified Collection Name)
+- hosts: all
+  tasks:
+    - name: Create a JSON file using community.general.json_query filter
+      ansible.builtin.set_fact:
+        my_data:
+          users:
+            - name: alice
+              active: true
+            - name: bob
+              active: false
+
+    - name: Query active users using community.general.json_query
+      ansible.builtin.debug:
+        msg: "Active users: {{ my_data | community.general.json_query('users[?active==`true`].name') }}"
+
+    - name: Use ansible.builtin FQCN explicitly
+      ansible.builtin.debug:
+        msg: "Using FQCN: ansible.builtin.debug"
+
+    - name: Create archive using community.general.archive
+      community.general.archive:
+        path: /tmp/web_content
+        dest: /tmp/web_backup.tar.gz
+        format: gz
+      ignore_errors: yes
+
+    - name: Display FQCN pattern explanation
+      ansible.builtin.debug:
+        msg: "FQCN = namespace.collection.module (e.g., community.general.archive)"

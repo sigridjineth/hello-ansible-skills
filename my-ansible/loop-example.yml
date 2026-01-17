@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+    - name: Print items using loop
+      ansible.builtin.debug:
+        msg: "Item: {{ item }}"
+      loop:
+        - apple
+        - banana
+        - cherry
