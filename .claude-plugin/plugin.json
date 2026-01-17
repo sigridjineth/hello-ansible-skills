@@ -5,8 +5,8 @@
   "author": {
     "name": "sigridjineth"
   },
-  "homepage": "https://github.com/sigridjineth/hello-ansible",
-  "repository": "https://github.com/sigridjineth/hello-ansible",
+  "homepage": "https://github.com/sigridjineth/hello-ansible-skills",
+  "repository": "https://github.com/sigridjineth/hello-ansible-skills",
   "license": "MIT",
   "keywords": ["ansible", "playbook", "automation", "devops", "infrastructure", "iac"]
 }

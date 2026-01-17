@@ -8,10 +8,10 @@ Ansible automation skills for Claude Code: playbook development, debugging, shel
 
 ```bash
 # Add the marketplace
-/plugin marketplace add sigridjineth/hello-ansible
+/plugin marketplace add sigridjineth/hello-ansible-skills
 
 # Install the plugin
-/plugin install ansible-skills@hello-ansible
+/plugin install ansible-skills@hello-ansible-skills
 ```
 
 ### Manual Installation
@@ -19,8 +19,8 @@ Ansible automation skills for Claude Code: playbook development, debugging, shel
 Clone the repository and symlink to your Claude plugins directory:
 
 ```bash
-git clone https://github.com/sigridjineth/hello-ansible.git
-ln -s $(pwd)/hello-ansible ~/.claude/plugins/ansible-skills
+git clone https://github.com/sigridjineth/hello-ansible-skills.git
+ln -s $(pwd)/hello-ansible-skills ~/.claude/plugins/ansible-skills
 ```
 
 ### Verify Installation
@@ -99,7 +99,7 @@ Help me set up Ansible for my 5 Ubuntu servers step by step
 ## Repository Structure
 
 ```
-hello-ansible/
+hello-ansible-skills/
 ├── .claude-plugin/
 │   ├── plugin.json          # Plugin metadata
 │   └── marketplace.json     # Marketplace configuration
